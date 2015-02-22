@@ -1,5 +1,5 @@
-var app = angular.module("boardgameapp", []);
-console.log('help');
+var app = angular.module("gamesapp", []);
+console.log("AngularJS app had been loaded!");
 
 var GameClass = function() {
   this.game = "A default game";
@@ -9,9 +9,9 @@ var GameClass = function() {
   };
 };
 
-app.controller("GameController", ['$scope', '$http', function($scope, $http) {
+app.controller("GameController", ["$scope", "$http", function($scope, $http) {
   $scope.games = [{"game": "game1"}];
-  $http.get('api/games').success(function(data, status, headers, config) {
+  $http.get("boardgameapp/api/games").success(function(data, status, headers, config) {
     $scope.games = [];
     angular.forEach(data, function(game) {
       var thisGame = new GameClass();
