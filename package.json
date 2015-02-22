@@ -1,10 +1,11 @@
 {
   "name": "BoardgameApp",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Simple web app using NodeJS, Angular, and Express",
   "bugs": "https://github.com/jermkeel/boardgameapp-node",
   "dependencies": {
     "express": "4.x",
-    "sqlite3": "3.x"
+    "sqlite3": "3.x",
+    "colors": "1.x"
   }
 }
