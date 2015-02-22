@@ -24,7 +24,7 @@ exports.api = function(req, res) {
   if (req.query.games) { num_games = req.query.games; }
 
   if (req.query.players) { 
-    sql_stmt2 += "minplayers=" + req.query.players + " ";
+    sql_stmt2 += "minplayers<=" + req.query.players + " AND maxplayers>= " + req.query.players + " ";
     numQs++;
   }
 

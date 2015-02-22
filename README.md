@@ -15,7 +15,7 @@ Return 10 random games.
 * * *
 [`/api/games?players=4`](http://jkeeler.me/boardgameapp/api/games?players=4)
 
-Return 10 random games that support at least 4 players.
+Return 10 random games that support 4 players.
 * * *
 [`/api/games?time=60`](http://jkeeler.me/boardgameapp/api/games?time=60)
 
@@ -27,4 +27,8 @@ Return 5 random games.
 * * *
 [`/api/games?players=4&time=60`](http://jkeeler.me/boardgameapp/api/games?players=4&time=60)
 
-Return 10 random games that support at least 4 players and take less than or equal to 60 minutes to play.
+Return 10 random games that support 4 players and take less than or equal to 60 minutes to play.
+* * *
+[`/api/games?players=2&time=120&games=100`](http://jkeeler.me/boardgameapp/api/games?players=2&time=120&games=100)
+
+Return 100 random games that support 2 players and take less than or equal to 120 minutes to play.

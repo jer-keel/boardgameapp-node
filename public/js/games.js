@@ -29,7 +29,7 @@ app.controller("GameController", ["$scope", "$http", function($scope, $http) {
     //console.log(query);
 
     // Request JSON information from the api
-    $http.get("boardgameapp/api/games" + query).success(function(data, status, headers, config) {
+    $http.get("/boardgameapp/api/games" + query).success(function(data, status, headers, config) {
       $scope.games = [];
 
       // For each game object received from the api push it on to the games array
