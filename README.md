@@ -25,6 +25,6 @@ Return 10 random games that take less than or equal to 60 minutes to play.
 
 Return 5 random games.
 * * *
-`[/api/games?players=4&time=60](http://jkeeler.me/boardgameapp/api/games?players=4&time=60)`
+['/api/games?players=4&time=60'](http://jkeeler.me/boardgameapp/api/games?players=4&time=60)
 
 Return 10 random games that support at least 4 players and take less than or equal to 60 minutes to play.
