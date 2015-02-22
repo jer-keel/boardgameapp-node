@@ -1,4 +1,4 @@
-// Start up express and import routes
+// Start up express and import routes and middleware
 var express = require("express");
 var server = express();
 var routes = require("./routes")(server);
