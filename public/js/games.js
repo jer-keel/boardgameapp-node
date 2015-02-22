@@ -15,9 +15,19 @@ var GameClass = function() {
 app.controller("GameController", ["$scope", "$http", function($scope, $http) {
   // Initialize the scope games to none
   $scope.games = [];
+  $scope.minPlayers = "";
+  $scope.maxPlayers = "";
+  $scope.playingTime = "";
 
-  // Request JSON information from the api
-  $http.get("api/games").success(function(data, status, headers, config) {
+  $scope.updateTable = function() {
+    var query = "?";
+    if ($scope.minPlayers !== "") { query += "minplayers=" + $scope.minPlayers + "&"; }
+    if ($scope.maxPlayers !== "") { query += "maxplayers=" + $scope.maxPlayers + "&"; }
+    if ($scope.playingTime !== "") { query += "playingtime=" + $scope.playingTime; }
+    //console.log(query);
+
+    // Request JSON information from the api
+    $http.get("api/games" + query).success(function(data, status, headers, config) {
     $scope.games = [];
 
     // For each game object received from the api push it on to the games array
@@ -26,5 +36,8 @@ app.controller("GameController", ["$scope", "$http", function($scope, $http) {
       angular.extend(thisGame, game);
       $scope.games.push(thisGame);
     }, this);
-  });
+    });
+  };
+
+  $scope.updateTable();
 }]);

@@ -26,23 +26,24 @@
       <form class="form-inline">
         <div class="form-group col-md-4">
           <label for="minPlayersInput">Min Players:</label>
-          <input type="text" class="form-control" id="minPlayersInput" placeholder="2">
+          <input type="text" class="form-control" id="minPlayersInput" placeholder="2" ng-model="minPlayers">
         </div>
         <div class="form-group col-md-4">
           <label for="maxPlayersInput">Max Players:</label>
-          <input type="text" class="form-control" id="maxPlayersInput" placeholder="6">
+          <input type="text" class="form-control" id="maxPlayersInput" placeholder="6" ng-model="maxPlayers">
         </div>
         <div class="form-group col-md-4">
           <label for="playingTimeInput">Playing Time:</label>
-          <input type="text" class="form-control" id="playingTimeInput" placeholder="90">
+          <input type="text" class="form-control" id="playingTimeInput" placeholder="90" ng-model="playingTime">
         </div>
       </form>
       <br>
       <br>
       <div class="center">
-        <button class="btn btn-success btn-lg" type="submit">Submit</button>
+        <button class="btn btn-success btn-lg" type="submit" ng-click="updateTable()">Submit</button>
       </div>
       <br>
+      <p>{{playingTime}}</p>
       <!-- Make a table, add header row, then for each game received from the API add another row -->
       <table class="table">
         <tr>
