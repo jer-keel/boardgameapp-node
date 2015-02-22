@@ -11,22 +11,31 @@ var db = new sqlite3.Database(db_file, function(error) {
   else { console.log("ERROR connected to database at " + db_file); }
 });
 
-// Temporary SQL statement partials
-var sql_stmt1 = "SELECT objectname as game, rank, maxplayers, minplayers, playingtime from games "
-var sql_stmt3 ="order by random() limit 0, 10;";
-
 // Function to call when hitting the api for boardgameapp
 exports.api = function(req, res) {
-  //console.log(req.path);
+  // Temporary SQL statement partials
+  var sql_stmt1 = "SELECT objectname as game, average, rank, maxplayers, minplayers, playingtime from games ";
   var sql_stmt2 = "WHERE ";
+  var sql_stmt3 ="order by random() limit 0, ";
+
   var numQs = 0;
-  for (var propName in req.query) {
-    if(numQs === 0) { sql_stmt2 += propName + "=" + String(req.query[propName]) + " "; }
-    else { sql_stmt2 += "AND " + propName + "=" + String(req.query[propName]) + " "; }
+  var num_games = 10;
+
+  if (req.query.games) { num_games = req.query.games; }
+
+  if (req.query.players) { 
+    sql_stmt2 += "minplayers=" + req.query.players + " ";
+    numQs++;
+  }
+
+  if (req.query.time) {
+    if (numQs > 0) { sql_stmt2 += "AND "; }
+    sql_stmt2 += "playingtime<=" + req.query.time + " ";
     numQs++;
   }
 
   if (numQs === 0) { sql_stmt2 = ""; }
+  sql_stmt3 += num_games + ";";
   stmt = sql_stmt1 + sql_stmt2 + sql_stmt3;
   //console.log(stmt);
 

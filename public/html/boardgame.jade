@@ -23,12 +23,12 @@ html(lang="en")
           input(type="text" class="form-control" id="minPlayersInput" placeholder="2" ng-model="minPlayers")
 
         div(class="form-group col-md-4")
-          label(for="maxPlayersInput") Max Players:
-          input(type="text" class="form-control" id="maxPlayersInput" placeholder="6" ng-model="maxPlayers")
+          label(for="maxPlayersInput") Playing Time: 
+          input(type="text" class="form-control" id="maxPlayersInput" placeholder="90" ng-model="playingTime")
 
         div(class="form-group col-md-4")
-          label(for="playingTimeInput") Playing Time:
-          input(type="text" class="form-control" id="playingTimeInput" placeholder="60" ng-model="playingTime")
+          label(for="playingTimeInput") Number of Games:
+          input(type="text" class="form-control" id="playingTimeInput" placeholder="10" ng-model="numGames")
 
       br
       br
@@ -41,13 +41,15 @@ html(lang="en")
       table(class="table")
         tr
           th Name
+          th Avg User Rating
           th Rank
           th Min Players
           th Max Players
           th Playing Time
 
-        tr(ng-repeat="game in games")
+        tr(ng-repeat="game in games | orderBy:'average':true")
           td {{game.game}}
+          td {{game.average}}
           td {{game.rank}}
           td {{game.minplayers}}
           td {{game.maxplayers}}

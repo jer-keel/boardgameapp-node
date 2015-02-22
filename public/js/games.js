@@ -16,14 +16,14 @@ app.controller("GameController", ["$scope", "$http", function($scope, $http) {
   // Initialize the scope games to none
   $scope.games = [];
   $scope.minPlayers = "";
-  $scope.maxPlayers = "";
   $scope.playingTime = "";
+  $scope.numGames = "";
 
   $scope.updateTable = function() {
     var query = "?";
-    if ($scope.minPlayers !== "") { query += "minplayers=" + $scope.minPlayers + "&"; }
-    if ($scope.maxPlayers !== "") { query += "maxplayers=" + $scope.maxPlayers + "&"; }
-    if ($scope.playingTime !== "") { query += "playingtime=" + $scope.playingTime; }
+    if ($scope.minPlayers !== "") { query += "players=" + $scope.minPlayers + "&"; }
+    if ($scope.playingTime !== "") { query += "time=" + $scope.playingTime + "&"; }
+    if ($scope.numGames !== "") { query += "games=" + $scope.numGames; }
     //console.log(query);
 
     // Request JSON information from the api

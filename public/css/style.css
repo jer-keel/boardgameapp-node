@@ -3,3 +3,7 @@
   margin: auto;
   display: block;
 }
+
+label {
+  margin-right: 4px;
+}
