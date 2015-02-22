@@ -18,6 +18,8 @@ app.controller("GameController", ["$scope", "$http", function($scope, $http) {
   $scope.minPlayers = "";
   $scope.playingTime = "";
   $scope.numGames = "";
+  $scope.ordering = "average";
+  $scope.reverse = true;
 
   $scope.updateTable = function() {
     var query = "?";
@@ -37,6 +39,11 @@ app.controller("GameController", ["$scope", "$http", function($scope, $http) {
         $scope.games.push(thisGame);
       }, this);
     });
+  };
+
+  $scope.orderTable = function(neworder) {
+    if ($scope.ordering === neworder) { $scope.reverse = !$scope.reverse; }
+    $scope.ordering = neworder;
   };
 
   $scope.updateTable();

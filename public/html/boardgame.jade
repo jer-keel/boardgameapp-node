@@ -23,7 +23,7 @@ html(lang="en")
           input(type="text" class="form-control" id="minPlayersInput" placeholder="2" ng-model="minPlayers")
 
         div(class="form-group col-md-4")
-          label(for="maxPlayersInput") Playing Time: 
+          label(for="maxPlayersInput") Max Playing Time: 
           input(type="text" class="form-control" id="maxPlayersInput" placeholder="90" ng-model="playingTime")
 
         div(class="form-group col-md-4")
@@ -40,14 +40,20 @@ html(lang="en")
 
       table(class="table")
         tr
-          th Name
-          th Avg User Rating
-          th Rank
-          th Min Players
-          th Max Players
-          th Playing Time
+          th(ng-click="orderTable('game')" ng-class="{ success: ordering==='game' && !reverse, danger: reverse && ordering==='game' }")= "Name "
+            span(class="glyphicon glyphicon-chevron-down" aria-hidden="true")
+          th(ng-click="orderTable('average')" ng-class="{ success: ordering==='average' && !reverse, danger: reverse && ordering==='average' }")= "Avg User Rating "
+            span(class="glyphicon glyphicon-chevron-down" aria-hidden="true")
+          th(ng-click="orderTable('rank')" ng-class="{ success: ordering==='rank' && !reverse, danger: reverse && ordering==='rank' }")= "Rank "
+            span(class="glyphicon glyphicon-chevron-down" aria-hidden="true")
+          th(ng-click="orderTable('minplayers')" ng-class="{ success: ordering==='minplayers' && !reverse, danger: reverse && ordering==='minplayers' }")= "Min Players "
+            span(class="glyphicon glyphicon-chevron-down" aria-hidden="true")
+          th(ng-click="orderTable('maxplayers')" ng-class="{ success: ordering==='maxplayers' && !reverse, danger: reverse && ordering==='maxplayers' }")= "Max Players "
+            span(class="glyphicon glyphicon-chevron-down" aria-hidden="true")
+          th(ng-click="orderTable('playingtime')" ng-class="{ success: ordering==='playingtime' && !reverse, danger: reverse && ordering==='playingtime' }")= "Playing Time "
+            span(class="glyphicon glyphicon-chevron-down" aria-hidden="true")
 
-        tr(ng-repeat="game in games | orderBy:'average':true")
+        tr(ng-repeat="game in games | orderBy:ordering:reverse")
           td {{game.game}}
           td {{game.average}}
           td {{game.rank}}
