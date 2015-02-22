@@ -43,5 +43,6 @@ exports.api = function(req, res) {
 // Index function for boardgame app
 exports.index = function(req, res) {
   console.log("New client has logged on with ip: " + colors.green(req.ip));
-  res.sendFile(path.resolve("./public/html/boardgame.html"));
+  res.render("boardgame");
+  //res.sendFile(path.resolve("./public/html/boardgame.html"));
 }

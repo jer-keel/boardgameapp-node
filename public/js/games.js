@@ -28,14 +28,14 @@ app.controller("GameController", ["$scope", "$http", function($scope, $http) {
 
     // Request JSON information from the api
     $http.get("api/games" + query).success(function(data, status, headers, config) {
-    $scope.games = [];
+      $scope.games = [];
 
-    // For each game object received from the api push it on to the games array
-    angular.forEach(data, function(game) {
-      var thisGame = new GameClass();
-      angular.extend(thisGame, game);
-      $scope.games.push(thisGame);
-    }, this);
+      // For each game object received from the api push it on to the games array
+      angular.forEach(data, function(game) {
+        var thisGame = new GameClass();
+        angular.extend(thisGame, game);
+        $scope.games.push(thisGame);
+      }, this);
     });
   };
 
