@@ -2,7 +2,7 @@ var path = require("path");
 var colors = require("colors/safe");
 
 // Database file location
-var db_file = "./bgg.sqlite";
+var db_file = "./db/bgg.sqlite";
 // Import sqlite module
 var sqlite3 = require("sqlite3").verbose();
 // Connect to database and handle errors

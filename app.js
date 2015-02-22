@@ -1,7 +1,7 @@
 // Start up express and import routes and middleware
 var express = require("express");
 var server = express();
-var routes = require("./routes")(server);
+var routes = require("./routes/routes")(server);
 
 // Define where static files are located for availability by the public
 server.use(express.static(__dirname+"/public"));
