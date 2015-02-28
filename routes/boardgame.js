@@ -14,7 +14,7 @@ var db = new sqlite3.Database(db_file, function(error) {
 // Function to call when hitting the api for boardgameapp
 exports.api = function(req, res) {
   // Temporary SQL statement partials
-  var sql_stmt1 = "SELECT objectname as game, average, rank, maxplayers, minplayers, playingtime from games ";
+  var sql_stmt1 = "SELECT objectname as game, average, rank, maxplayers, minplayers, playingtime, thumbnail from games JOIN extra on (games.objectid = extra.objectid) ";
   var sql_stmt2 = "WHERE ";
   var sql_stmt3 ="order by random() limit 0, ";
 
