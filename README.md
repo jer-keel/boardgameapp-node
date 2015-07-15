@@ -1,5 +1,5 @@
 # Boardgameapp - Node Version
-This is a clone of the boardgame app but instead of using a LAMP stack this one uses a (M)EAN Stack. (M)EAN stands for (Mongo, in parenthesis because for this one we are actually using sqlite), Express, Angular, and NodeJS. This is a practice exercise to learn NodeJS and webdevlopment. 
+This is a clone of the boardgame app but instead of using a LAMP stack this one uses a (M)EAN Stack. (M)EAN stands for (Mongo, in parenthesis because for this one we are actually using sqlite), Express, Angular, and NodeJS. This is a practice exercise to learn NodeJS and webdevlopment.
 
 An example of this application can be found on my server at [jkeeler.me](http://jkeeler.me/boardgameapp).
 
@@ -32,3 +32,5 @@ Return 10 random games that support 4 players and take less than or equal to 60 
 [`/api/games?players=2&time=120&games=100`](http://jkeeler.me/boardgameapp/api/games?players=2&time=120&games=100)
 
 Return 100 random games that support 2 players and take less than or equal to 120 minutes to play.
+
+Simple readme update
