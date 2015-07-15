@@ -9,6 +9,7 @@ var GameClass = function() {
   this.minplayers = "-1";
   this.maxplayers = "-1";
   this.playingtime = "-1";
+  this.thumbnail = "";
 };
 
 // Create a GameController
